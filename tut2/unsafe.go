@@ -13,6 +13,7 @@ func main() {
 	fmt.Println("*p1: ", *p1)
 	fmt.Println("*p2: ", *p2)
 
+	// What does this output tell us? It tells us that a 32-bit pointer cannot store a 64-bit integer!
 	*p1 = 5434123412312431212
 	fmt.Println(value)
 	fmt.Println("*p2: ", *p2)
