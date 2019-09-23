@@ -17,6 +17,7 @@ func main() {
 	}
 
 	for _, logEntry := range logs {
+		// Check whether you have a date and time string somewhere in your line or not
 		r := regexp.MustCompile(`.*\[(\d\d\/\w+/\d\d\d\d:\d\d:\d\d:\d\d.*)\].*`)
 		if r.MatchString(logEntry) {
 			match := r.FindStringSubmatch(logEntry)
