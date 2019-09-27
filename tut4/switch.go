@@ -48,6 +48,7 @@ func main() {
 		fmt.Println("Floating point!")
 	case email.MatchString(asString):
 		fmt.Println("It is an email!")
+		//  execute the branch that follows the current one, which in this case is the default branch
 		fallthrough
 	default:
 		fmt.Println("Something else!")
