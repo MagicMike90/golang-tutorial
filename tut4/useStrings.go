@@ -46,7 +46,9 @@ func main() {
 	f("Fields: %v\n", s.Fields("Thisis\na\tstring!"))
 
 	f("%s\n", s.Split("abcd efg", ""))
-	// The first one is the string that you want to process. The second parameter contains the string that, if found, will be replaced by the third parameter
+	// The first one is the string that you want to process.
+	// The second parameter contains the string that, if found, will be replaced by the third parameter
+	// last parameter is the maximum number of replacements that will happen
 	f("%s\n", s.Replace("abcd efg", "", "_", -1))
 	f("%s\n", s.Replace("abcd efg", "", "_", 4))
 	f("%s\n", s.Replace("abcd efg", "", "_", 2))
