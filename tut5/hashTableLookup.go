@@ -16,8 +16,6 @@ type HashTable struct {
 	Size  int
 }
 
-// particular hash table has to cope with integer values
-// dealing with strings or floating-point numbers, then you should have used a different logic in your hash function.
 func hashFunction(i, size int) int {
 	return (i % size)
 }
@@ -29,9 +27,7 @@ func insert(hash *HashTable, value int) int {
 	return index
 }
 
-// Go outputs the key and value pairs of a map is totally random!
 func traverse(hash *HashTable) {
-	//  visits each one of the linked lists of the hash table and prints the stored values
 	for k := range hash.Table {
 		if hash.Table[k] != nil {
 			t := hash.Table[k]
@@ -44,12 +40,30 @@ func traverse(hash *HashTable) {
 	}
 }
 
+func lookup(hash *HashTable, value int) bool {
+	index := hashFunction(value, hash.Size)
+	if hash.Table[index] != nil {
+		t := hash.Table[index]
+		for t != nil {
+			if t.Value == value {
+				return true
+			}
+			t = t.Next
+		}
+	}
+	return false
+}
+
 func main() {
 	table := make(map[int]*Node, SIZE)
 	hash := &HashTable{Table: table, Size: SIZE}
-	fmt.Println("Number of spaces:", hash.Size)
 	for i := 0; i < 120; i++ {
 		insert(hash, i)
 	}
-	traverse(hash)
+
+	for i := 10; i < 125; i++ {
+		if !lookup(hash, i) {
+			fmt.Println(i, "is not in the hash table!")
+		}
+	}
 }
