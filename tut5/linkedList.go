@@ -76,6 +76,10 @@ func size(t *Node) int {
 	return i
 }
 
+// 1. generic enough so that they can be used in many different situations
+// 2. linked lists are really fast at sequential searching when used with pointers
+// 3. Linked lists cannot only help you sort your data, but they can also assist you in keeping your data sorted even after inserting or deleting elements
+// 4. if you have lots of data and you know that you will need to delete data all the time, using a linked list is a better choice than using a hash table or a binary tree.
 func main() {
 	fmt.Println(root)
 	root = nil
@@ -83,6 +87,7 @@ func main() {
 	addNode(root, 1)
 	addNode(root, -1)
 	traverse(root)
+	addNode(root, 45)
 	addNode(root, 10)
 	addNode(root, 5)
 	addNode(root, 45)
