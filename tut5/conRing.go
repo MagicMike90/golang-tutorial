@@ -15,11 +15,13 @@ func main() {
 		myRing.Value = i
 		myRing = myRing.Next()
 	}
-
+	// adds the value 2 to the ring
 	myRing.Value = 2
 
 	sum := 0
+	// call a function for each element of a ring in forward order
 	myRing.Do(func(x interface{}) {
+		// using type assertion
 		t := x.(int)
 		sum = sum + t
 	})
