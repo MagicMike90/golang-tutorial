@@ -54,6 +54,7 @@ func lookup(hash *HashTable, value int) bool {
 	return false
 }
 
+// When a hash table has n keys and k buckets, the search speed for the n keys goes from O(n) for a linear search down to O(n/k)!
 func main() {
 	table := make(map[int]*Node, SIZE)
 	hash := &HashTable{Table: table, Size: SIZE}
