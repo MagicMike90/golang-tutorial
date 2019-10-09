@@ -12,6 +12,7 @@ func main() {
 	buffer.Write([]byte("This is"))
 	fmt.Fprintf(&buffer, " a string!\n")
 	buffer.WriteTo(os.Stdout)
+	// the buffer variable will be empty after the first buffer.WriteTo() call.
 	buffer.WriteTo(os.Stdout)
 
 	buffer.Reset()
